@@ -16,11 +16,6 @@ const WatchListPage = () => {
     const watchedEpisodes = useSelector((state) => state.shows.watchedEpisodes);
     const episodesByShow = useSelector((state) => state.shows.episodesByShow || {});
 
-
-    if (watchlist.length === 0) {
-        return <p className={styles.empty}>Your watchlist is empty.</p>;
-    }
-
     const handleRemove = (showId) => {
         dispatch(removeFromWatchlist(showId));
     };
@@ -28,37 +23,46 @@ const WatchListPage = () => {
     const handleToggleEpisode = (showId, episodeId) => {
         const watched = watchedEpisodes[showId] || [];
         if (watched.includes(episodeId)) {
-            dispatch(unmarkEpisodeWatched({ showId, episodeId }));
+            dispatch(unmarkEpisodeWatched({showId, episodeId}));
         } else {
-            dispatch(markEpisodeWatched({ showId, episodeId }));
+            dispatch(markEpisodeWatched({showId, episodeId}));
         }
     };
+
 
     return (
         <div className={styles.container}>
             <h1>My Watchlist</h1>
-            <div className={styles.list}>
-                {watchlist.map((show) => (
-                    <ShowCard key={show.id} show={show}>
-                        <div className={styles.controls}>
-                            <button
-                                className={styles.removeBtn}
-                                onClick={() => handleRemove(show.id)}
-                            >
-                                Remove from Watchlist
-                            </button>
+            {watchlist.length === 0 ? (
+                <p className={styles.empty}>Your watchlist is empty.</p>
+            ) : (
+                <div className={styles.list}>
+                    {watchlist.map((show) => (
+                        <ShowCard key={show.id} show={show}>
+                            <div className={styles.controls}>
+                                <button
+                                    className={styles.removeBtn}
+                                    onClick={() => handleRemove(show.id)}
+                                >
+                                    Remove from Watchlist
+                                </button>
 
-                            <RatingStars showId={show.id}/>
+                                <p className={styles.progress}>
+                                    {watchedEpisodes[show.id]?.length || 0} / {episodesByShow[show.id]?.length || 0} episodes watched
+                                </p>
 
-                            <EpisodeList
-                                episodes={episodesByShow[show.id] || []}
-                                watchedEpisodes={watchedEpisodes[show.id] || []}
-                                onToggleEpisode={(episodeId) => handleToggleEpisode(show.id, episodeId)}
-                            />
-                        </div>
-                    </ShowCard>
-                ))}
-            </div>
+                                <RatingStars showId={show.id} />
+
+                                <EpisodeList
+                                    episodes={episodesByShow[show.id] || []}
+                                    watchedEpisodes={watchedEpisodes[show.id] || []}
+                                    onToggleEpisode={(episodeId) => handleToggleEpisode(show.id, episodeId)}
+                                />
+                            </div>
+                        </ShowCard>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

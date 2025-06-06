@@ -32,6 +32,12 @@
     background-color: #c9302c;
 }
 
+.progress {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
 .empty {
     text-align: center;
     font-size: 1.2rem;
