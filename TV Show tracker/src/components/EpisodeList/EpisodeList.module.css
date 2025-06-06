@@ -1,0 +1,30 @@
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+}
+
+.episode {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+label {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.watched {
+    text-decoration: line-through;
+    color: #999;
+}
