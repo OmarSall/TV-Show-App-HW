@@ -8,6 +8,7 @@ const initialState = getShowsFromLocalStorage() || {
     watchlist: [],
     watchedEpisodes: {},
     ratings: {},
+    episodesByShow: {},
 };
 
 const showsSlice = createSlice({
@@ -59,6 +60,11 @@ const showsSlice = createSlice({
                 saveShowsToLocalStorage(state);
             }
         },
+        saveEpisodesForShow: (state, action) => {
+            const { showId, episodes } = action.payload;
+            state.episodesByShow[showId] = episodes;
+            saveShowsToLocalStorage(state);
+        },
     },
 });
 
@@ -68,6 +74,7 @@ export const {
     markEpisodeWatched,
     unmarkEpisodeWatched,
     rateShow,
+    saveEpisodesForShow,
 } = showsSlice.actions;
 
 export default showsSlice.reducer;

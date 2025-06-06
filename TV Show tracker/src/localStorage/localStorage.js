@@ -14,14 +14,16 @@ export function getShowsFromLocalStorage() {
         return saved ? JSON.parse(saved) : {
             watchlist: [],
             watchedEpisodes: {},
-            ratings: {}
+            ratings: {},
+            episodesByShow: {},
         };
     } catch (error) {
         console.error("Error reading shows from localStorage:", error);
         return {
             watchlist: [],
             watchedEpisodes: {},
-            ratings: {}
+            ratings: {},
+            episodesByShow: {},
         };
     }
 }

@@ -13,7 +13,7 @@ const RatingStars = ({ showId }) => {
 
     return (
         <div className={styles.rating}>
-            {[1, 2, 3, 4, 5].map((star) => (
+            {[5, 4, 3, 2, 1].map((star) => (
                 <span
                     key={star}
                     className={`${styles.star} ${rating >= star ? styles.active : ""}`}

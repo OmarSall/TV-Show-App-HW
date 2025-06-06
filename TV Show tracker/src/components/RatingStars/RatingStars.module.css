@@ -1,5 +1,6 @@
 .rating {
     display: flex;
+    flex-direction: row-reverse; /* KLUCZOWE → odwracamy kierunek */
     gap: 4px;
     cursor: pointer;
 }
@@ -10,8 +11,8 @@
     transition: color 0.2s;
 }
 
-.star:hover,
-.star:hover ~ .star {
+.rating .star:hover,
+.rating .star:hover ~ .star {
     color: gold;
 }
 
