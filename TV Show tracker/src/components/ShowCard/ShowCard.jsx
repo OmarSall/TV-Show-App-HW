@@ -11,7 +11,7 @@ const ShowCard = ({ show, children }) => {
             <img
                 src={imageUrl}
                 alt={show?.name || "TV Show"}
-                className={styles.image}
+                className={styles.imageWrapper}
             />
             <div className={styles.info}>
                 <h3>{show?.name || "Untitled"}</h3>

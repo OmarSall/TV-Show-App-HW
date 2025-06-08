@@ -2,10 +2,12 @@ import React from "react";
 import styles from "./ShowDetails.module.css";
 import EpisodeList from "../EpisodeList/EpisodeList";
 
-const ShowDetails = ({ show, episodes, watchedEpisodes, onToggleEpisode }) => {
+const ShowDetails = ({show, watchedEpisodes, onToggleEpisode}) => {
     if (!show) {
         return <p>Loading show details...</p>;
     }
+
+    const episodes = show._embedded?.episodes || [];
 
     const imageUrl = show.image?.original || show.image?.medium || "/vite.svg";
 
@@ -17,7 +19,7 @@ const ShowDetails = ({ show, episodes, watchedEpisodes, onToggleEpisode }) => {
         <div className={styles.details}>
             <h2 className={styles.title}>{show.name}</h2>
             <div className={styles.topSection}>
-                <img src={imageUrl} alt={show.name} className={styles.image} />
+                <img src={imageUrl} alt={show.name} className={styles.image}/>
                 <div className={styles.info}>
                     <p><strong>Premiered:</strong> {show.premiered || "Unknown"}</p>
                     <p><strong>Genres:</strong> {show.genres?.join(", ") || "N/A"}</p>
