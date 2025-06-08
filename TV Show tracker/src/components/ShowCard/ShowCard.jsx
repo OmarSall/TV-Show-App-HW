@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ShowCard.module.css";
 import {Link} from "react-router-dom";
 
-const ShowCard = ({ show, children }) => {
+const ShowCard = ({show, children}) => {
     const imageUrl = show?.image?.medium || "/vite.svg";
     const premieredYear = show?.premiered ? show.premiered.split("-")[0] : "Unknown year";
 

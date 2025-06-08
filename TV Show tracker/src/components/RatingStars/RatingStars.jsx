@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./RatingStars.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { rateShow } from "../../store/showsSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {rateShow} from "../../store/showsSlice";
 
-const RatingStars = ({ showId }) => {
+const RatingStars = ({showId}) => {
     const dispatch = useDispatch();
     const rating = useSelector((state) => state.shows.ratings[showId] || 0);
 
     const handleRate = (value) => {
-        dispatch(rateShow({ showId, rating: value }));
+        dispatch(rateShow({showId, rating: value}));
     };
 
     return (

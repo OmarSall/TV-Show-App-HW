@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./EpisodeList.module.css";
 
-const EpisodeList = ({ episodes, watchedEpisodes = [], onToggleEpisode }) => {
+const EpisodeList = ({episodes, watchedEpisodes = [], onToggleEpisode}) => {
     if (!episodes || episodes.length === 0) {
         return <p>No episodes available.</p>;
     }

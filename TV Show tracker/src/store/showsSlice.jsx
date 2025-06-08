@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import {
     getShowsFromLocalStorage,
     saveShowsToLocalStorage,
@@ -33,7 +33,7 @@ const showsSlice = createSlice({
         },
 
         markEpisodeWatched: (state, action) => {
-            const { showId, episodeId } = action.payload;
+            const {showId, episodeId} = action.payload;
             if (!state.watchedEpisodes[showId]) {
                 state.watchedEpisodes[showId] = [];
             }
@@ -44,7 +44,7 @@ const showsSlice = createSlice({
         },
 
         unmarkEpisodeWatched: (state, action) => {
-            const { showId, episodeId } = action.payload;
+            const {showId, episodeId} = action.payload;
             if (state.watchedEpisodes[showId]) {
                 state.watchedEpisodes[showId] = state.watchedEpisodes[showId].filter(
                     (id) => id !== episodeId
@@ -54,14 +54,14 @@ const showsSlice = createSlice({
         },
 
         rateShow: (state, action) => {
-            const { showId, rating } = action.payload;
+            const {showId, rating} = action.payload;
             if (rating >= 1 && rating <= 5) {
                 state.ratings[showId] = rating;
                 saveShowsToLocalStorage(state);
             }
         },
         saveEpisodesForShow: (state, action) => {
-            const { showId, episodes } = action.payload;
+            const {showId, episodes} = action.payload;
             state.episodesByShow[showId] = episodes;
             saveShowsToLocalStorage(state);
         },
