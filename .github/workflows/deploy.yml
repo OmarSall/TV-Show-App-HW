@@ -21,7 +21,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0 # Netlify deploy action
         with:
-          publish-dir: './dist' # the build files location
+          publish-dir: 'TV Show tracker/dist' # the build files location
           # github-token is required by Netlify,
           # it will be added by GitHub itself
           github-token: ${{ secrets.GITHUB_TOKEN }}
