@@ -11,10 +11,12 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: cd "TV Show tracker" && npm ci # install dependencies
+        working-directory: ./TV Show tracker
+        run: npm ci
 
-      - name: Build the app
-        run: cd "TV Show tracker" && npm run build  # build the app
+      - name: Build project
+        working-directory: ./TV Show tracker
+        run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0 # Netlify deploy action
