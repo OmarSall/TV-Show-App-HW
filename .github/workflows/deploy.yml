@@ -12,16 +12,16 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm ci # install dependencies
-        working-directory: 'TV Show tracker'
+        working-directory: "TV Show tracker"
 
       - name: Build the app
         run: npm run build  # build the app
-        working-directory: 'TV Show tracker'
+        working-directory: "TV Show tracker"
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0 # Netlify deploy action
         with:
-          publish-dir: 'TV Show tracker/dist' # the build files location
+          publish-dir: "TV Show tracker/dist" # the build files location
           # github-token is required by Netlify,
           # it will be added by GitHub itself
           github-token: ${{ secrets.GITHUB_TOKEN }}
