@@ -1,12 +1,38 @@
-# React + Vite
+# TV Show Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TV Show Tracker** is a front-end React application for browsing TV shows, viewing detailed information, and managing a personal watchlist. The project focuses on clean state management, routing, and predictable data flow using Redux Toolkit.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse TV shows and view detailed show pages
+- Add and remove shows from a personal watchlist
+- Persistent watchlist stored in localStorage
+- Client-side routing with nested layouts
+- Global state management with Redux Toolkit
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Vite
+- Redux Toolkit + React Redux
+- React Router DOM
+- JavaScript (ES Modules)
+
+## Architecture Highlights
+
+- Centralized global state using Redux Toolkit
+- Feature-based separation between pages, components, and store
+- Dedicated API layer for external data fetching
+- Local storage abstraction for persistent user data
+- Shared layout with nested routes
+
+## Getting Started (Development)
+
+```bash
+npm install
+```
+```bash
+npm run dev
+```
+
+The application runs locally using Vite and does not require a backend server.
